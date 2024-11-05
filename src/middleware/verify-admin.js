@@ -8,10 +8,11 @@ function verifyAdmin(req, res, next) {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    if (decoded?.role === "superadmin") next();
+    if (decoded?.role === "superadmin") return next();
     return res.status(403).json({ message: "Insufficient privileges" });
   } catch (error) {
-    res.status(401).json({ error: "Invalid token" });
+    console.log("Middleware Auth error", error);
+    return res.status(401).json({ error: "Invalid token" });
   }
 }
 

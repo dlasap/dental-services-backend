@@ -10,7 +10,7 @@ import { v4 as uuid } from "uuid";
 const route = express.Router();
 const table = "dentists";
 
-// READ ALL Users
+// READ ALL Dentists
 route.get("/dentists", async (req, res) => {
   const { success, data } = await readAllTable(table);
 
@@ -20,11 +20,10 @@ route.get("/dentists", async (req, res) => {
   return res.status(500).json({ success: false, messsage: "Error" });
 });
 
-// Get User by ID
+// Get Dentists by ID
 route.get("/dentist/:id", async (req, res) => {
   const { id } = req.params;
-  const { success, data } = await getUserById(id);
-  console.log(data);
+  const { success, data } = await getDentistsById(id);
   if (success) {
     return res.json({ success, data });
   }
@@ -32,7 +31,7 @@ route.get("/dentist/:id", async (req, res) => {
   return res.status(500).json({ success: false, message: "Error" });
 });
 
-// Create User
+// Create Dentists
 route.post("/dentist", async (req, res) => {
   const { password, ...dentistDetails } = req.body;
 
@@ -85,7 +84,7 @@ route.put("/dentist/:id", async (req, res) => {
   return res.status(500).json({ success: false, message: "Error" });
 });
 
-// Delete User by Id
+// Delete Dentists by Id
 route.delete("/dentist/:id", async (req, res) => {
   const { id } = req.params;
   const { success, data } = await deleteItemById(id);

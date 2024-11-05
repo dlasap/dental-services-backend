@@ -15,7 +15,11 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:8080",
+    "http://localhost:3000",
+  ],
   optionsSuccessStatus: 200,
 };
 
@@ -33,8 +37,7 @@ app.use("/admin", verifyAdmin, users);
 app.use("/api", verifyToken, dentists, appointments);
 
 app.get("*", (_, res) => {
-  console.log("a client tried to access a non-existing endpoint.");
-  res.send("404 | Not found!");
+  res.status(404).send("404 | Not found!");
 });
 
 app.listen(PORT, () => {

@@ -25,7 +25,6 @@ route.get("/users", async (req, res) => {
 route.get("/user/:id", async (req, res) => {
   const { id } = req.params;
   const { success, data } = await getUserById(id);
-  console.log(data);
   if (success) {
     return res.json({ success, data });
   }
@@ -48,8 +47,6 @@ route.post("/user", async (req, res) => {
     userDetails?.email,
     "email"
   );
-
-  console.log({ existingUser });
 
   if (existingUser.length > 0) {
     return res

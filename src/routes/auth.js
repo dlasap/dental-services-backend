@@ -8,7 +8,6 @@ import { hashPassword, passwordVerifier } from "../utils/helper.js";
 route.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log("req.body", req.body);
     const table = "users";
 
     if (!email || !password) {
@@ -22,7 +21,6 @@ route.post("/login", async (req, res) => {
       data: [possibleUser],
       success,
     } = await getTableDataByUniqueKey(table, email, "email");
-    console.log("possibleUser", possibleUser);
 
     if (!possibleUser) {
       return res
@@ -49,7 +47,7 @@ route.post("/login", async (req, res) => {
       }
     );
 
-    res.status(200).json({
+    return res.status(200).json({
       success,
       token,
       data: {
@@ -60,7 +58,7 @@ route.post("/login", async (req, res) => {
     });
   } catch (error) {
     console.error("LOGIN ERROR:", error);
-    res.status(500).json({ error: "Login failed" });
+    return res.status(500).json({ error: "Login failed" });
   }
 });
 
@@ -130,7 +128,7 @@ route.post("/existingUser", async (req, res) => {
     });
   } catch (error) {
     console.error("GET USER ERROR", error);
-    res.status(500).json({ error: "Login failed" });
+    return res.status(500).json({ error: "Login failed" });
   }
 });
 
