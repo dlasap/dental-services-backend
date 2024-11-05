@@ -1,5 +1,7 @@
 # Dom's Dental Backend Service
 
+---
+
 ## Table of Contents
 
 - [Description](#description)
@@ -7,8 +9,6 @@
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Endpoints](#api-endpoints) _(optional)_
-- [Configuration](#configuration) _(optional)_
 
 ---
 
