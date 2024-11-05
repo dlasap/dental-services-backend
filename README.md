@@ -1,6 +1,4 @@
-# Project Name
-
-Dom's Dental Backend Service
+# Dom's Dental Backend Service
 
 ## Table of Contents
 
