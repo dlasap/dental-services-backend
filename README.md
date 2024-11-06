@@ -22,17 +22,18 @@ This application provides backend services and support for the online scheduling
 
 - Serves the frontend application with register, login features with JWT.
 - Serves data for the appointments booked, and available dentists
+- EKS Deployment scripts
 
 ## Technologies
 
 - **Backend:** Node.js, Express, DynamoDB
-- **Other services:** Docker, Kubernetes, Nodemon, cors, bcrypt, jwt
+- **Other services:** Docker, AWS EKS Deployment, Nodemon, cors, bcrypt, jwt
 
 ## Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/dlasap/dental-services-backend.git
    cd your-project
    ```
 2. **Install Dependencies**

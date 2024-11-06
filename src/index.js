@@ -19,6 +19,7 @@ const corsOptions = {
     "http://localhost:5173",
     "http://localhost:8080",
     "http://localhost:3000",
+    process.env.AWS_DEPLOYED_FRONTEND_URL ?? "",
   ],
   optionsSuccessStatus: 200,
 };
@@ -28,7 +29,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Dom's Dental." });
+  res.json({
+    message: "Welcome to Dom's Dental.",
+  });
 });
 
 app.use(auth);

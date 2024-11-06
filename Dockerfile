@@ -1,5 +1,5 @@
 # Base Image for the Backend Node.js Application Docker image
-FROM node:18-alpine
+FROM --platform=linux/amd64 node:18-alpine
 # Nodememon for monitoring and watching the Backend Node.js Application container
 RUN npm install -g nodemon
 

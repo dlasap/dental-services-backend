@@ -1,13 +1,19 @@
 {
   "name": "dental-backend",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Dom's Dental services",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
-    "start": "node --trace-warnings src/index.js"
+    "start": "node --trace-warnings src/index.js",
+    "deploy-backend": "kubectl apply -f backend-deployment.yaml",
+    "deploy-service": "kubectl apply -f backend-service.yaml",
+    "deploy": "npm run deploy-backend && npm run deploy-service",
+    "get-service": "kubectl get service",
+    "restart-kubectl-pods": "kubectl rollout restart deployment/backend-deployment",
+    "get-pods": "kubectl get pods -l app=backend"
   },
   "author": "Dominic Gabriel Lasap",
   "license": "MIT",
