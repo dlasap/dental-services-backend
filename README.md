@@ -1,6 +1,7 @@
 # Dom's Dental Backend Service
 
-For documentation: <a href='https://docs.google.com/document/d/1kuxg5S8xTBo_8tzfEUvX9ZkATqh2mjzJO5ewUWe_cDs/edit?usp=sharing'> Documentation File </a>
+For documentation: <a href='https://docs.google.com/document/d/1kuxg5S8xTBo_8tzfEUvX9ZkATqh2mjzJO5ewUWe_cDs/edit?usp=sharing'  target="_blank" rel="noopener noreferrer"> Documentation File </a>
+
 Enjoy your stay!
 
 ## Table of Contents
