@@ -7,6 +7,7 @@ import verifyToken from "./middleware/verify-token-middleware.js";
 import auth from "./routes/auth.js";
 import cors from "cors";
 import verifyAdmin from "./middleware/verify-admin.js";
+import { sendAppointmentEmailToUsers } from "./services/index.js";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
+  sendAppointmentEmailToUsers();
   res.json({
     message: "Welcome to Dom's Dental.",
   });

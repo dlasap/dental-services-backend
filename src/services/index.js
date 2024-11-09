@@ -1,4 +1,5 @@
 import { db } from "../db.config.js";
+import { sendEmail } from "./mail-service.js";
 
 // Create or Update Items
 const createOrUpdate = async (table, data = {}, isUpdate = false) => {
@@ -67,9 +68,19 @@ const deleteItemById = async (table, value, key = "id") => {
   }
 };
 
+const sendAppointmentEmailToUsers = async () => {
+  try {
+    await sendEmail();
+  } catch (error) {
+    console.log("SEND APPOINTMENT ERROR:", error);
+    return { success: false };
+  }
+};
+
 export {
   createOrUpdate,
   readAllTable,
   getTableDataByUniqueKey,
   deleteItemById,
+  sendAppointmentEmailToUsers,
 };
