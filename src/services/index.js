@@ -68,9 +68,17 @@ const deleteItemById = async (table, value, key = "id") => {
   }
 };
 
-const sendAppointmentEmailToUsers = async () => {
+const sendAppointmentEmailToUsers = async ({
+  to,
+  subject,
+  emailHTMLContentString,
+}) => {
   try {
-    await sendEmail();
+    await sendEmail({
+      subject,
+      to,
+      emailContent: emailHTMLContentString,
+    });
   } catch (error) {
     console.log("SEND APPOINTMENT ERROR:", error);
     return { success: false };

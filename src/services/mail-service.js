@@ -5,18 +5,17 @@ dotenv.config();
 
 const resend = new Resend(process.env.RESEND_MAIL_API_KEY ?? "");
 
-const sendEmail = async ({
-  from = "",
-  recipients = [],
-  subject = "",
-  text = "",
-}) => {
+const sendEmail = async ({ subject = "", to = "", emailContent = "" }) => {
   try {
     const res = await resend.emails.send({
-      from: "domdental@gmail.ccom",
-      to: ["lasapdominic@gmail.com"],
-      subject: "Dom's Dental Appointment Notification",
-      html: "<p>Congrats on sending your <strong>first email</strong>!</p>",
+      // Current from is commented due to no domains yet
+      // from: "domdental@gmail.ccom",
+      from: process.env.EMAIL_DOMAIN_SENDER || "domdentalservices@resend.dev",
+      to: [to ?? "lasapdominic@gmail.com"],
+      subject: subject ?? "Dom's Dental Appointment Notification",
+      html:
+        emailContent ??
+        "<p>Hi User! This email serves as your confirmation email for your appointment on Dom's Dental Services.</p>",
     });
     console.log("res", res);
   } catch (error) {
