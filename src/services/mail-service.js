@@ -11,7 +11,8 @@ const sendEmail = async ({ subject = "", to = "", emailContent = "" }) => {
       // Current from is commented due to no domains yet
       // from: "domdental@gmail.ccom",
       from: process.env.EMAIL_DOMAIN_SENDER || "domdentalservices@resend.dev",
-      to: [to ?? "lasapdominic@gmail.com"],
+      //   constant email for dev testing , need domain for all email test
+      to: ["lasapdominic@gmail.com"],
       subject: subject ?? "Dom's Dental Appointment Notification",
       html:
         emailContent ??

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: dlasap/dental-service-backend:v4
+          image: dlasap/dental-service-backend:v5
           resources:
             limits:
               memory: "256Mi"
